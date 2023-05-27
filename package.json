@@ -1,0 +1,18 @@
+{
+    "name": "gutenbergaddon",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/sidebar.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "wp-scripts build ./sidebar.js --output-path=js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@wordpress/scripts": "26.4.0"
+    },
+    "dependencies": {
+        "@wordpress/icons": "^9.24.0"
+    }
+}
