@@ -1,5 +1,5 @@
 {
-    "name": "gutenbergaddon",
+    "name": "wp-aisidekick",
     "version": "1.0.0",
     "description": "",
     "main": "src/sidebar.js",

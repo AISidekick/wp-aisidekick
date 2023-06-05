@@ -9,11 +9,7 @@
 					<label>Licence key:</label>
 					<input type="password" name="aisidekick-licence-key" value="<?php echo esc_attr(
          get_option("aisidekick_licence_key", "")
-     ); ?>" /><br /><?php if (empty($licence_key)): ?>
-					You need a valid licence key to be able to use AI Sidekick. Please register at <a href="">aisidekick.io</a> to get one.
-					<?php else: ?>
-					Thanks for owning a licence!
-					<?php endif; ?>
+     ); ?>" /><br /><?php echo $messageToShow; ?>
 				</p>
 		</div><!-- #universal-message-container -->
 		<?php
