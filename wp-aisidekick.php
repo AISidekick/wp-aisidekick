@@ -54,14 +54,6 @@ function aisidekick_settings_link($links)
     return array_merge($settings_link, $links);
 }
 
-// ---
-
-function aisidekick_enqueue_jquery_ui()
-{
-    wp_enqueue_script("jquery-ui-resizable");
-}
-add_action("admin_enqueue_scripts", "aisidekick_enqueue_jquery_ui");
-
 function aisidekick_admin_head()
 {
     ?>
