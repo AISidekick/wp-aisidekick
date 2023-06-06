@@ -1,0 +1,79 @@
+#aisidekick iframe {
+    width: 100%;
+    height: calc(100% - 40px);
+    min-height: calc(100% - 40px);
+}
+#aisidekick {
+    position: absolute;
+    z-index: 9;
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    right: 20px;
+    bottom: 30px;
+}
+
+#aisidekick.small {
+    height: 70vh;
+    width: 300px;
+}
+
+#aisidekick.large {
+    height: calc(100vh - 100px);
+    min-height: 80vh;
+    width: 50vw;
+    min-width: 300px;
+}
+#aisidekick #aisidekickheader {
+    padding: 5px 20px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
+    height: 30px;
+}
+
+#aisidekick.small #aisidekickheader {
+    width: 200px;
+}
+
+#aisidekick.large #aisidekickheader {
+    width: calc(50vw - 90px);
+}
+
+#aisidekickmenu {
+    padding: 10px;
+    width: 50px;
+    height: 20px;
+    vertical-align: top;
+}
+
+#aisidekick #aisidekickmenu button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+#aisidekick #aisidekickmenu button:before {
+    font-size: 20px;
+    font-family: dashicons;
+    vertical-align: middle;
+}
+
+#aisidekick.small button#toggleAiSidekickSize:before {
+    content: "\f211";
+}
+
+#aisidekick.large button#toggleAiSidekickSize:before {
+    content: "\f506";
+}
+
+#aisidekick button#toggleAiSidekick:before {
+    content: "\f460";
+}
+
+#aisidekickheader svg {
+    height: 30px;
+}

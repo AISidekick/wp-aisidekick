@@ -54,173 +54,18 @@ function aisidekick_settings_link($links)
     return array_merge($settings_link, $links);
 }
 
+/*function wpdocs_selectively_enqueue_admin_script( $hook ) {
+    if ( 'edit.php' != $hook ) {
+        return;
+    }
+    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . 'myscript.js', array(), '1.0' );
+}
+add_action( 'admin_enqueue_scripts', 'aisidekick_enqueue_admin_script' );*/
+
 function aisidekick_admin_head()
 {
-    ?>
-   <style>
-   
-      #aisidekick iframe {
-           width: 100%;
-           height: calc(100% - 40px);
-           min-height:calc(100% - 40px); 
-      }
-  #aisidekick {
-    position: absolute;
-    z-index: 9;
-    background-color: #ffffff;
-    border: 1px solid #d3d3d3;
-    text-align: center;
-    right: 20px;
-    bottom: 30px;
-  }
-  
-    #aisidekick.small {
-        height: 70vh;
-        width: 300px;
-    }
-    
-      #aisidekick.large {
-          height: calc(100vh  - 100px);
-          min-height: 80vh;
-          width: 50vw;
-          min-width: 300px;
-  }
-  #aisidekick #aisidekickheader {
-    padding: 5px 20px;
-    cursor: move;
-    z-index: 10;
-    color: #fff;
-    height: 30px;
-  }
-  
-   #aisidekick.small #aisidekickheader {
-        width: 200px;
-    }
-    
-  #aisidekick.large #aisidekickheader {
-     width: calc(50vw - 90px);
-  }
-  
-  #aisidekickmenu {
-     padding: 10px;
-      width: 50px;
-      height: 20px;
-      vertical-align: top;
-  }
-  
-   #aisidekick #aisidekickmenu button {
-        background: none;
-        color: inherit;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-  }
-  #aisidekick #aisidekickmenu button:before {
-      font-size: 20px;
-       font-family: dashicons;
-        vertical-align: middle;
-  }
-  
-  #aisidekick.small button#toggleAiSidekickSize:before {
-     content: "\f211";
-  }
-  
-    #aisidekick.large button#toggleAiSidekickSize:before {
-       content: "\f506";
-    }
-    
-    #aisidekick button#toggleAiSidekick:before {
-       content: "\f460";
-    }
-
-  #aisidekickheader svg {
-     height: 30px;
-  }
-   </style>
-   <script>
-      
-      jQuery( document ).ready(function() {
-      dragElement(document.getElementById("aisidekick"));
-      });
-      function dragElement(elmnt) {
-        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        if (document.getElementById(elmnt.id + "header")) {
-          // if present, the header is where you move the DIV from:
-          document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-        } else {
-          // otherwise, move the DIV from anywhere inside the DIV:
-          elmnt.onmousedown = dragMouseDown;
-        }
-      
-        function dragMouseDown(e) {
-          e = e || window.event;
-          e.preventDefault();
-          // get the mouse cursor position at startup:
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          document.onmouseup = closeDragElement;
-          // call a function whenever the cursor moves:
-          document.onmousemove = elementDrag;
-        }
-      
-        function elementDrag(e) {
-          e = e || window.event;
-          e.preventDefault();
-          // calculate the new cursor position:
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          // set the element's new position:
-          elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-          elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        }
-      
-        function closeDragElement() {
-          // stop moving when mouse button is released:
-          document.onmouseup = null;
-          document.onmousemove = null;
-        }
-      }
-      
-      function toggleAiSidekickSize() {
-         if(jQuery( "#aisidekick" ).hasClass( "small" )) {
-              jQuery( "#aisidekick" ).removeClass( "small" );
-              jQuery( "#aisidekick" ).addClass( "large" );
-         }
-         else {
-              jQuery( "#aisidekick" ).removeClass( "large" );
-              jQuery( "#aisidekick" ).addClass( "small" );
-         }
-         
-         if((parseInt(jQuery( "#aisidekick" ).css("bottom")) < 0) || (parseInt(jQuery( "#aisidekick" ).css("right")) < 0)) {
-            jQuery('#aisidekick').css('top', '').css('left', '');
-            jQuery( "#aisidekick" ).css("bottom", "40px");
-            jQuery( "#aisidekick" ).css("right", "20px");
-         }
-      }
-      
-      function toggleAiSidekick() {
-         if((parseInt(jQuery( "#aisidekick" ).css("bottom")) < 0) || (parseInt(jQuery( "#aisidekick" ).css("right")) < 0)) {
-            jQuery('#aisidekick').css('top', '').css('left', '');
-            jQuery( "#aisidekick" ).css("bottom", "40px");
-            jQuery( "#aisidekick" ).css("right", "20px");
-         }
-         else {
-            if(jQuery( "#aisidekick" ).hasClass( "large" )) {
-                 jQuery( "#aisidekick" ).removeClass( "large" );
-                 jQuery( "#aisidekick" ).addClass( "small" );
-            }
-            
-            jQuery('#aisidekick').css('top', '').css('left', '');
-            jQuery( "#aisidekick" ).css("bottom", "calc(-70vh + 39px)");
-            jQuery( "#aisidekick" ).css("right", "20px)");
-         }
-      }
-   </script>
-<?php
+    wp_enqueue_script("aisidekick", plugin_dir_url(__FILE__) . "js/aisidekick.js", [], "1.0");
+    wp_enqueue_style("aisidekick", plugin_dir_url(__FILE__) . "css/aisidekick.css");
 }
 add_action("admin_head", "aisidekick_admin_head");
 
@@ -239,6 +84,8 @@ function aisidekick_admin_footer($data)
         "language" => $locale,
         "domain" => home_url(),
         "siteName" => get_bloginfo("name"),
+        "userId" => 0,
+        "platform" => "wordpress",
     ];
 
     if (!empty($sidekickLicenceKey)) {
@@ -255,8 +102,9 @@ function aisidekick_admin_footer($data)
        </div>
        </div>
       <iframe
-            src="https://api.neosidekick.com/chat?<? echo http_build_query($parameter); ?>"
+            src="https://assistant.neosidekick.com/chat?<? echo http_build_query($parameter); ?>"
             frameborder="0"
+            allow="clipboard-write"
             allowfullscreen
         ></iframe>
     </div>
