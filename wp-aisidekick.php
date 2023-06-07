@@ -66,6 +66,8 @@ function aisidekick_admin_head()
 {
     wp_enqueue_script("aisidekick", plugin_dir_url(__FILE__) . "js/aisidekick.js", [], "1.0");
     wp_enqueue_style("aisidekick", plugin_dir_url(__FILE__) . "css/aisidekick.css");
+
+    wp_add_inline_script("aisidekick", 'var aiSidekickPageUrl = "' . get_permalink() . '"', "before");
 }
 add_action("admin_head", "aisidekick_admin_head");
 
@@ -102,7 +104,7 @@ function aisidekick_admin_footer($data)
        </div>
        </div>
       <iframe
-            src="https://assistant.neosidekick.com/chat?<? echo http_build_query($parameter); ?>"
+            src="https://assistant.ai-sidekick.app/chat?<? echo http_build_query($parameter); ?>"
             frameborder="0"
             allow="clipboard-write"
             allowfullscreen
