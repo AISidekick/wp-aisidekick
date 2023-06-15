@@ -7,6 +7,10 @@ jQuery(document).ready(function () {
             updateAiSidekick("page-updated");
         });
 
+        document.getElementById("title").addEventListener("change", function () {
+            updateAiSidekick("page-updated");
+        });
+
         //var editable = document.querySelectorAll('div[contentEditable]');
 
         var editable = document.querySelectorAll("h1.editor-post-title");
@@ -22,21 +26,20 @@ jQuery(document).ready(function () {
                 }
             };
         }
-
-        /*
-        document.querySelector("#aisidekick iframe").addEventListener("message", function (event) {
-            if (event.data.eventName === "write-content") {
-                let changes = event.data.data;
-
-                console.log(changes);
-            }
-        });*/
     }, 1000);
 });
 
 function updateAiSidekick(event = "page-changed") {
-    const pageTitle = document.querySelector("h1.editor-post-title").innerText;
-    const pageUrl = window.location.href; // WRONG!!!
+    gutenbergTitle = document.querySelector("h1.editor-post-title");
+    if (gutenbergTitle) {
+        pageTitle = gutenbergTitle.innerText;
+    }
+    if (!gutenbergTitle || !pageTitle) {
+        classicEditorTitle = document.getElementById("title");
+        if (classicEditorTitle) {
+            pageTitle = classicEditorTitle.value;
+        }
+    }
 
     const editableElements = document.querySelectorAll("#editor [contenteditable=true]:not(h1.editor-post-title)");
     contentOfPageExceptTitle = "";

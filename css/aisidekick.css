@@ -5,12 +5,12 @@
 }
 #aisidekick {
     position: absolute;
-    z-index: 9;
+    z-index: 1000;
     background-color: #ffffff;
     border: 1px solid #d3d3d3;
     text-align: center;
     right: 20px;
-    bottom: 30px;
+    top: 100px;
 }
 
 #aisidekick.small {
