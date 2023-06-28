@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.4]
+- Changed to using Wordpress-provided jQuery UI Dialog for scrollable
+- Changed overlay to position:fixed so it stays at the same position if scrolling
+
 ## [0.9.3]
 - Changed navigation to three sizes: landscape, portrait and full
 - userId parameter is now being used

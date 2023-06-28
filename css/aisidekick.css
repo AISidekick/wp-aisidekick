@@ -5,7 +5,7 @@
 }
 
 #aisidekick {
-    position: absolute;
+    position: fixed;
     z-index: 9;
     background-color: #ffffff;
     border: 1px solid #d3d3d3;

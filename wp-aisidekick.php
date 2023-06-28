@@ -67,6 +67,9 @@ function aisidekick_admin_head()
     wp_enqueue_script("aisidekick", plugin_dir_url(__FILE__) . "js/aisidekick.js", [], "1.0");
     wp_enqueue_style("aisidekick", plugin_dir_url(__FILE__) . "css/aisidekick.css");
 
+    wp_enqueue_script("jquery-ui-core");
+    wp_enqueue_script("jquery-ui-dialog");
+
     wp_add_inline_script("aisidekick", 'var aiSidekickPageUrl = "' . get_permalink() . '"', "before");
 }
 add_action("admin_head", "aisidekick_admin_head");
