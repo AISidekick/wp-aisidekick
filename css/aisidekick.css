@@ -3,48 +3,91 @@
     height: calc(100% - 40px);
     min-height: calc(100% - 40px);
 }
+
 #aisidekick {
     position: absolute;
-    z-index: 1000;
+    z-index: 9;
     background-color: #ffffff;
     border: 1px solid #d3d3d3;
-    text-align: center;
+    text-align: left;
     right: 20px;
-    top: 100px;
+    bottom: 30px;
 }
 
-#aisidekick.small {
+#aisidekick.portrait {
     height: 70vh;
-    width: 300px;
+    width: 340px;
 }
 
-#aisidekick.large {
-    height: calc(100vh - 100px);
-    min-height: 80vh;
-    width: 50vw;
-    min-width: 300px;
+#aisidekick.landscape {
+    height: 400px;
+    min-height: 30vh;
+    width: 80vw;
 }
+
+#aisidekick.full {
+    width: 50vw;
+    min-width: 340px;
+    height: 80vh;
+    min-height: 400px;
+}
+
+#aisidekick.disabled {
+    width: 340px;
+    min-width: 340px;
+    height: 40px;
+    min-height: 40px;
+}
+
+#aisidekick svg path {
+    fill: grey;
+}
+
+#aisidekickheader svg {
+    height: 30px;
+}
+
+#aisidekick.full #aiSidekickFull svg path {
+    fill: rgb(22 163 74);
+}
+
+#aisidekick.portrait #aiSidekickPortrait svg path {
+    fill: rgb(22 163 74);
+}
+
+#aisidekick.landscape #aiSidekickLandscape svg path {
+    fill: rgb(22 163 74);
+}
+
+#aisidekick.disable #aiSidekickDisable svg path {
+    fill: rgb(22 163 74);
+}
+
 #aisidekick #aisidekickheader {
-    padding: 5px 20px;
+    padding: 5px 0.75rem;
     cursor: move;
     z-index: 10;
     color: #fff;
     height: 30px;
 }
 
-#aisidekick.small #aisidekickheader {
-    width: 200px;
+#aisidekick.portrait #aisidekickheader,
+#aisidekick.disabled #aisidekickheader {
+    width: 240px;
 }
 
-#aisidekick.large #aisidekickheader {
-    width: calc(50vw - 90px);
+#aisidekick.landscape #aisidekickheader {
+    width: calc(80vw - 100px);
+}
+
+#aisidekick.full #aisidekickheader {
+    width: calc(50vw - 100px);
 }
 
 #aisidekickmenu {
-    padding: 10px;
-    width: 50px;
+    padding: 10px 5px;
+    width: 80px;
     height: 20px;
-    vertical-align: top;
 }
 
 #aisidekick #aisidekickmenu button {
@@ -55,25 +98,10 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    width: 16px;
 }
 #aisidekick #aisidekickmenu button:before {
     font-size: 20px;
     font-family: dashicons;
     vertical-align: middle;
-}
-
-#aisidekick.small button#toggleAiSidekickSize:before {
-    content: "\f211";
-}
-
-#aisidekick.large button#toggleAiSidekickSize:before {
-    content: "\f506";
-}
-
-#aisidekick button#toggleAiSidekick:before {
-    content: "\f460";
-}
-
-#aisidekickheader svg {
-    height: 30px;
 }

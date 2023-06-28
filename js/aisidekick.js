@@ -7,10 +7,6 @@ jQuery(document).ready(function () {
             updateAiSidekick("page-updated");
         });
 
-        document.getElementById("title").addEventListener("change", function () {
-            updateAiSidekick("page-updated");
-        });
-
         //var editable = document.querySelectorAll('div[contentEditable]');
 
         var editable = document.querySelectorAll("h1.editor-post-title");
@@ -26,20 +22,22 @@ jQuery(document).ready(function () {
                 }
             };
         }
+
+        /*
+        document.querySelector("#aisidekick iframe").addEventListener("message", function (event) {
+            if (event.data.eventName === "write-content") {
+                let changes = event.data.data;
+
+                console.log(changes);
+            }
+        });*/
     }, 1000);
 });
 
 function updateAiSidekick(event = "page-changed") {
-    gutenbergTitle = document.querySelector("h1.editor-post-title");
-    if (gutenbergTitle) {
-        pageTitle = gutenbergTitle.innerText;
-    }
-    if (!gutenbergTitle || !pageTitle) {
-        classicEditorTitle = document.getElementById("title");
-        if (classicEditorTitle) {
-            pageTitle = classicEditorTitle.value;
-        }
-    }
+    console.log("updateAiSidekick");
+    const pageTitle = document.querySelector("h1.editor-post-title").innerText;
+    const pageUrl = window.location.href; // WRONG!!!
 
     const editableElements = document.querySelectorAll("#editor [contenteditable=true]:not(h1.editor-post-title)");
     contentOfPageExceptTitle = "";
@@ -47,18 +45,19 @@ function updateAiSidekick(event = "page-changed") {
         contentOfPageExceptTitle = contentOfPageExceptTitle + editableElements[i].outerHTML;
     }
 
-    document.querySelector("#aisidekick iframe").contentWindow.postMessage(
-        {
-            version: "1.0",
-            eventName: event,
-            data: {
-                url: aiSidekickPageUrl,
-                title: pageTitle,
-                content: contentOfPageExceptTitle,
-            },
+    aiSidekickData = {
+        version: "1.0",
+        eventName: event,
+        data: {
+            url: aiSidekickPageUrl,
+            title: pageTitle,
+            content: contentOfPageExceptTitle,
         },
-        "*"
-    );
+    };
+
+    console.log(aiSidekickData);
+    result = document.querySelector("#aisidekick iframe").contentWindow.postMessage(aiSidekickData, "*");
+    console.log(result);
 }
 
 function dragElement(elmnt) {
@@ -105,35 +104,22 @@ function dragElement(elmnt) {
     }
 }
 
-function toggleAiSidekickSize() {
-    if (jQuery("#aisidekick").hasClass("small")) {
-        jQuery("#aisidekick").removeClass("small");
-        jQuery("#aisidekick").addClass("large");
-    } else {
-        jQuery("#aisidekick").removeClass("large");
-        jQuery("#aisidekick").addClass("small");
-    }
-
-    if (parseInt(jQuery("#aisidekick").css("bottom")) < 0 || parseInt(jQuery("#aisidekick").css("right")) < 0) {
-        jQuery("#aisidekick").css("top", "").css("left", "");
-        jQuery("#aisidekick").css("bottom", "40px");
-        jQuery("#aisidekick").css("right", "20px");
-    }
+function aiSidekickLandscape() {
+    jQuery("#aisidekick").removeClass("full portrait disabled");
+    jQuery("#aisidekick").addClass("landscape");
 }
 
-function toggleAiSidekick() {
-    if (parseInt(jQuery("#aisidekick").css("bottom")) < 0 || parseInt(jQuery("#aisidekick").css("right")) < 0) {
-        jQuery("#aisidekick").css("top", "").css("left", "");
-        jQuery("#aisidekick").css("bottom", "40px");
-        jQuery("#aisidekick").css("right", "20px");
-    } else {
-        if (jQuery("#aisidekick").hasClass("large")) {
-            jQuery("#aisidekick").removeClass("large");
-            jQuery("#aisidekick").addClass("small");
-        }
+function aiSidekickPortrait() {
+    jQuery("#aisidekick").removeClass("landscape full disabled");
+    jQuery("#aisidekick").addClass("portrait");
+}
 
-        jQuery("#aisidekick").css("top", "").css("left", "");
-        jQuery("#aisidekick").css("bottom", "calc(-70vh + 39px)");
-        jQuery("#aisidekick").css("right", "20px)");
-    }
+function aiSidekickFull() {
+    jQuery("#aisidekick").removeClass("landscape portrait disabled");
+    jQuery("#aisidekick").addClass("full");
+}
+
+function aiSidekickDisable() {
+    jQuery("#aisidekick").removeClass("landscape portrait full");
+    jQuery("#aisidekick").addClass("disabled");
 }

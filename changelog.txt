@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.3]
+- Changed navigation to three sizes: landscape, portrait and full
+- userId parameter is now being used
+- changed icons to FontAwesome icons
+
+## [0.9.2]
+- Adaptions for classic editor
+
 ## [0.9.1]
 - Rewriting integration of AI Sidekick due to reloading problem of sidebar
 
