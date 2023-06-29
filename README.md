@@ -19,7 +19,7 @@ After installing, you can select "AI Sidekick" in the "Plugins" section of the s
 
 If you choose to upgrade to a paid version, you have to register at https://ai-sidekick.app/ and enter the license code provided in the "Settings" -> "AI Sidekick" page.
 
-Features:
+== Features ==
 
 -   Find the optimal page title
     Get inspired by many suggestions to find the best title for each page.
@@ -37,7 +37,7 @@ Features:
 *   Find the perfect style
     Your Sidekick helps you write with motivation, precision, like a marketing genius, or as if from the pen of a masterful writer. Just the way you want it.
 
-Coming soon
+== Coming soon ==
 
 -   Information about your site and target audience
     You can give your writing assistant more information about your company and your goals - analyzed with AI, it will then give you even better results.

@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.9.5]
+- Added versioning to js-files
+
 ## [0.9.4]
 - Changed to using Wordpress-provided jQuery UI Dialog for scrollable
 - Changed overlay to position:fixed so it stays at the same position if scrolling
