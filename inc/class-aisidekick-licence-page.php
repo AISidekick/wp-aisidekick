@@ -1,4 +1,8 @@
 <?php
+if (!defined("ABSPATH")) {
+    exit();
+} // Exit if accessed directly
+
 use Symfony\Component\HttpClient\HttpClient;
 /**
  * Creates the submenu page for the plugin.
@@ -24,12 +28,14 @@ class AISidekickLicencePage
             $statusCode = $response->getStatusCode();
             $decodedPayload = $response->toArray(false);
 
+            $messageColor = "red";
             if ($statusCode == 498 && !empty($decodedPayload["message"])) {
-                $messageToShow = '<span style="color:red">' . $decodedPayload["message"] . "</span>";
+                $messageToShow = $decodedPayload["message"];
             } elseif ($statusCode == 200 && !empty($decodedPayload["message"])) {
-                $messageToShow = '<span style="color:green">' . $decodedPayload["message"] . "</span>";
+                $messageColor = "green";
+                $messageToShow = $decodedPayload["message"];
             } elseif (!empty($decodedPayload["message"])) {
-                $messageToShow = '<span style="color:red">' . $decodedPayload["message"] . "</span>";
+                $messageToShow = $decodedPayload["message"];
             } else {
                 $messageToShow = "Error retrieving your licence status.";
             }

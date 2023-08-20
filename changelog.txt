@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.9.6]
+- Changes based on the feedback of the WordPress Plugin Review Team
+
 ## [0.9.5]
 - Added versioning to js-files
 

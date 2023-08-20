@@ -1,10 +1,15 @@
 <?php
+
+if (!defined("ABSPATH")) {
+    exit();
+} // Exit if accessed directly
+
 /**
  * Creates the AI Sidekick Submenu
  *
  * @package AI_Sidekick
  */
-class Submenu
+class AiSidekickSubmenu
 {
     /**
      * @var Submenu_Page

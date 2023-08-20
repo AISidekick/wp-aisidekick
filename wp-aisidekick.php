@@ -18,7 +18,7 @@
  * Plugin Name: AI Sidekick
  * Plugin URI: https://ai-sidekick.app/
  * Description: Embed plugin for AI Sideckick in WordPress
- * Version: 0.9.3
+ * Version: 0.9.6
  * Author: Matteo Savio
  * Author URI: https://ai-sidekick.app/
  **/
@@ -28,9 +28,9 @@ if (!defined("WPINC")) {
     die();
 }
 
-define("PLUGIN_VERSION", "0.9.3");
+define("PLUGIN_VERSION", "0.9.4");
 
-require_once "vendor/autoload.php";
+require_once plugin_dir_path(__FILE__) . "vendor/autoload.php";
 include_once plugin_dir_path(__FILE__) . "inc/class-submenu.php";
 include_once plugin_dir_path(__FILE__) . "inc/class-serializer.php";
 include_once plugin_dir_path(__FILE__) . "inc/class-aisidekick-licence-page.php";
@@ -39,10 +39,10 @@ add_action("plugins_loaded", "aisidekick_custom_admin_settings");
 
 function aisidekick_custom_admin_settings()
 {
-    $serializer = new Serializer();
+    $serializer = new AiSidekickSerializer();
     $serializer->init();
 
-    $plugin = new Submenu(new AISidekickLicencePage());
+    $plugin = new AiSidekickSubmenu(new AISidekickLicencePage());
     $plugin->init();
 }
 
