@@ -68,6 +68,11 @@ jQuery(document).ready(function () {
 
         observer.observe(contentArea, { attributes: true, childList: true, subtree: true });
     }, 1000);
+    
+    
+    if (jQuery("body.post-type-attachment")[0]){
+        jQuery( ".attachment-actions" ).append( '<button type="button" class="button edit-attachment">Generate meta text</button>' );
+    }
 });
 
 function updateAiSidekick(event = "page-changed") {
@@ -79,7 +84,7 @@ function updateAiSidekick(event = "page-changed") {
     for (let i = 0; i < editableElements.length; i++) {
         contentOfPageExceptTitle = contentOfPageExceptTitle + editableElements[i].outerHTML;
     }
-    console.log(contentOfPageExceptTitle);
+    
     aiSidekickData = {
         version: "1.0",
         eventName: event,
@@ -91,7 +96,6 @@ function updateAiSidekick(event = "page-changed") {
     };
 
     result = document.querySelector("#aisidekick iframe").contentWindow.postMessage(aiSidekickData, "*");
-    console.log(result);
 }
 
 function aiSidekickLandscape() {

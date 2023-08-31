@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.9.7]
+- Small design fix.
+
 ## [0.9.6]
 - Changes based on the feedback of the WordPress Plugin Review Team
 

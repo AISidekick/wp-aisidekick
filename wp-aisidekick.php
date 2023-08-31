@@ -28,7 +28,7 @@ if (!defined("WPINC")) {
     die();
 }
 
-define("PLUGIN_VERSION", "0.9.4");
+define("PLUGIN_VERSION", "0.9.7");
 
 require_once plugin_dir_path(__FILE__) . "vendor/autoload.php";
 include_once plugin_dir_path(__FILE__) . "inc/class-submenu.php";
