@@ -5,19 +5,19 @@ jQuery(document).ready(function () {
 
     setTimeout(function () {
         updateAiSidekick();
-        document.querySelector("h1.editor-post-title").addEventListener("change", function () {
+        document.querySelector("h1.editor-post-title")?.addEventListener("change", function () {
             updateAiSidekick("page-updated");
         });
 
         //var editable = document.querySelectorAll('div[contentEditable]');
 
-        var editable = document.querySelectorAll("h1.editor-post-title");
+        const editable = document.querySelectorAll("h1.editor-post-title");
 
         for (var i = 0, len = editable.length; i < len; i++) {
             editable[i].setAttribute("data-orig", editable[i].innerHTML);
 
             editable[i].onblur = function () {
-                if (this.innerHTML != this.getAttribute("data-orig")) {
+                if (this.innerHTML !== this.getAttribute("data-orig")) {
                     // change has happened, store new value
                     this.setAttribute("data-orig", this.innerHTML);
                     updateAiSidekick("page-updated");
@@ -34,20 +34,6 @@ jQuery(document).ready(function () {
 			}
 		});*/
 
-        const debounce = (context, func, delay) => {
-            let timeout;
-
-            return (...arguments) => {
-                if (timeout) {
-                    clearTimeout(timeout);
-                }
-
-                timeout = setTimeout(() => {
-                    func.apply(context, arguments);
-                }, delay);
-            };
-        };
-
         const contentArea = document.querySelector("#editor .edit-post-visual-editor__content-area");
 
         // Create an observer instance linked to the callback function
@@ -59,33 +45,39 @@ jQuery(document).ready(function () {
                     if (!contentArea) {
                         console.info("The content area is gone");
                     }
-                    //console.info(contentArea.innerHTML);
                     updateAiSidekick("page-updated");
                 },
                 500
             )
         );
 
-        observer.observe(contentArea, { attributes: true, childList: true, subtree: true });
+        if (contentArea) {
+            observer.observe(contentArea, {attributes: true, childList: true, subtree: true});
+        }
     }, 1000);
-    
-    
-    if (jQuery("body.post-type-attachment")[0]){
-        jQuery( ".attachment-actions" ).append( '<button type="button" class="button edit-attachment">Generate meta text</button>' );
+
+
+    if (jQuery("body.post-type-attachment")[0]) {
+        jQuery(".attachment-actions").append('<button type="button" class="button edit-attachment">Generate meta text</button>');
     }
 });
 
 function updateAiSidekick(event = "page-changed") {
-    const pageTitle = document.querySelector("h1.editor-post-title").innerText;
-    const pageUrl = window.location.href; // WRONG!!!
+    const pageTitle = document.querySelector("h1.editor-post-title")?.innerText;
+
+    if (!pageTitle) {
+        return;
+    }
+
+    const aiSidekickPageUrl = window.location.href; // WRONG!!!
 
     const editableElements = document.querySelectorAll("#editor [contenteditable=true]:not(h1.editor-post-title)");
-    contentOfPageExceptTitle = "";
+    let contentOfPageExceptTitle = "";
     for (let i = 0; i < editableElements.length; i++) {
         contentOfPageExceptTitle = contentOfPageExceptTitle + editableElements[i].outerHTML;
     }
-    
-    aiSidekickData = {
+
+    const aiSidekickData = {
         version: "1.0",
         eventName: event,
         data: {
@@ -95,7 +87,7 @@ function updateAiSidekick(event = "page-changed") {
         },
     };
 
-    result = document.querySelector("#aisidekick iframe").contentWindow.postMessage(aiSidekickData, "*");
+    document.querySelector("#aisidekick iframe").contentWindow.postMessage(aiSidekickData, "*");
 }
 
 function aiSidekickLandscape() {
@@ -117,3 +109,17 @@ function aiSidekickDisable() {
     jQuery("#aisidekick").removeClass("landscape portrait full");
     jQuery("#aisidekick").addClass("disabled");
 }
+
+const debounce = (context, func, delay) => {
+    let timeout;
+
+    return (...arguments) => {
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+
+        timeout = setTimeout(() => {
+            func.apply(context, arguments);
+        }, delay);
+    };
+};
