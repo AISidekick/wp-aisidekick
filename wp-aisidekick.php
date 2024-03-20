@@ -28,7 +28,7 @@ if (!defined("WPINC")) {
     die();
 }
 
-define("PLUGIN_VERSION", "0.9.7");
+define("AI_SIDEKICK_PLUGIN_VERSION", "0.9.7");
 
 require_once plugin_dir_path(__FILE__) . "vendor/autoload.php";
 include_once plugin_dir_path(__FILE__) . "inc/class-submenu.php";
@@ -58,8 +58,8 @@ function aisidekick_settings_link($links)
 
 function aisidekick_admin_head()
 {
-    wp_enqueue_script("aisidekick", plugin_dir_url(__FILE__) . "js/aisidekick.js", [], PLUGIN_VERSION);
-    wp_enqueue_style("aisidekick", plugin_dir_url(__FILE__) . "css/aisidekick.css", [], PLUGIN_VERSION);
+    wp_enqueue_script("aisidekick", plugin_dir_url(__FILE__) . "js/aisidekick.js", [], AI_SIDEKICK_PLUGIN_VERSION);
+    wp_enqueue_style("aisidekick", plugin_dir_url(__FILE__) . "css/aisidekick.css", [], AI_SIDEKICK_PLUGIN_VERSION);
 
     wp_enqueue_script("jquery-ui-core");
     wp_enqueue_script("jquery-ui-dialog");
