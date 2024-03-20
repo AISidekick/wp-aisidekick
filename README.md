@@ -44,3 +44,7 @@ If you choose to upgrade to a paid version, you must register at https://ai-side
 
 -   Magic content elements
     AI Sidekick transforms your text into ready-made content elements. In doing so, it analyzes all the content elements available on your website and automatically selects the optimal ones.
+
+== Usage of external services ==
+
+This plugin uses the AI Sidekick API to provide the features listed above. By using this plugin, you agree to the terms of service and privacy policy of AI Sidekick. For more details, please visit https://ai-sidekick.app/.
