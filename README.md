@@ -48,4 +48,6 @@ If you choose to upgrade to a paid version, you must register at https://ai-side
 
 == Usage of external services ==
 
-This plugin uses the AI Sidekick API to provide the features listed above. By using this plugin, you agree to the terms of service and privacy policy of AI Sidekick. For more details, please visit https://ai-sidekick.app/.
+This plugin uses the AI Sidekick API to provide the features listed above. By using this plugin, you agree to the terms of service and privacy policy of AI Sidekick. 
+For more details, please visit https://ai-sidekick.app/.
+You can find the privacy policy at https://ai-sidekick.app/en/company/imprint.
