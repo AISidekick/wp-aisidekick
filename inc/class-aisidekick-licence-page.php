@@ -20,7 +20,7 @@ class AISidekickLicencePage
         try {
             $response = $client->request(
                 "POST",
-                "https://assistant.ai-sidekick.app/api/v1/apikey-status?language=?language=" . get_locale(),
+                "https://assistant.ai-sidekick.app/api/v1/apikey-status?language=" . get_locale(),
                 [
                     "json" => ["token" => $sidekickLicenceKey],
                 ]

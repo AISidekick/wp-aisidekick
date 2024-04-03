@@ -25,14 +25,14 @@ use Amp\Success;
  */
 class AmpResolver implements Dns\Resolver
 {
-    private $dnsMap;
+    private array $dnsMap;
 
     public function __construct(array &$dnsMap)
     {
         $this->dnsMap = &$dnsMap;
     }
 
-    public function resolve(string $name, int $typeRestriction = null): Promise
+    public function resolve(string $name, ?int $typeRestriction = null): Promise
     {
         if (!isset($this->dnsMap[$name]) || !\in_array($typeRestriction, [Record::A, null], true)) {
             return Dns\resolver()->resolve($name, $typeRestriction);
