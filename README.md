@@ -7,6 +7,7 @@ Stable tag: 0.9.6
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 This plugin integrates AI Sidekick (ai-sidekick.app) as a panel into the WordPress editor.
 
 Use ChatGPT and other LLM models directly in the WordPress editor. AI Sidekick provides a user interface specifically designed for the needs of writing and editing content in WordPress.
