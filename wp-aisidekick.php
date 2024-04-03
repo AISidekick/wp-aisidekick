@@ -40,7 +40,7 @@ function aisidekick_settings_link($links)
 {
     $url = "options-general.php?page=ai-sidekick-licence";
 
-    $settings_link = ["<a href='$url'>" . __("Settings") . "</a>"];
+    $settings_link = ["<a href='$url'>Settings</a>"];
 
     return array_merge($settings_link, $links);
 }
