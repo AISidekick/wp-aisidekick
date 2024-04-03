@@ -1,20 +1,16 @@
 <?php
-/*
+/**
  * AI Sidekick
  *
  * Plugin Name: AI Sidekick
  * Plugin URI: https://ai-sidekick.app/
- * Description: Embed plugin for AI Sideckick in WordPress
+ * Description: Embed plugin for AI Sidekick in WordPress
  * Version: 0.9.6
  * Author: Matteo Savio
  * Author URI: https://ai-sidekick.app/
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- *
- * @package ai-sidekick
- * @version 0.9.6
- * @license http://opensource.org/licenses/gpl-2.0.php GNU Public License
- **/
+ */
 
 // If this file is called directly, abort.
 if (!defined("WPINC")) {
