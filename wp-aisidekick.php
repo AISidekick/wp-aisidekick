@@ -93,7 +93,7 @@ function aisidekick_admin_footer($data)
        </div>
        </div>
       <iframe
-            src="https://assistant.ai-sidekick.app/chat?<? echo http_build_query($parameter); ?>"
+            src="https://assistant.ai-sidekick.app/chat?<?php echo http_build_query($parameter); ?>"
             frameborder="0"
             allow="clipboard-write"
             allowfullscreen
