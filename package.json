@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "wp-scripts build ./sidebar.js --output-path=js"
     },
-    "author": "",
+    "author": "Code Q Web Factory GmbH",
     "license": "ISC",
     "devDependencies": {
         "@wordpress/scripts": "26.4.0"

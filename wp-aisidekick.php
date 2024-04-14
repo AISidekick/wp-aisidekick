@@ -6,8 +6,8 @@
  * Plugin URI: https://ai-sidekick.app/
  * Description: Embed plugin for AI Sidekick in WordPress
  * Version: 0.9.6
- * Author: Matteo Savio
- * Author URI: https://ai-sidekick.app/
+ * Author: Matteo Savio, and Code Q Web Factory GmbH
+ * Author URI: https://ai-sidekick.app/firma/ueber-uns
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
